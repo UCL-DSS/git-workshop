@@ -1,4 +1,4 @@
-# UCL Data Science Society - Term 2 Workshop 6: Introduction to Git/Github
+# UCL Data Science Society - Term 2 Workshop 6: Introduction to _Git/Github_
 
 Created by Zhaoxuan "Tony" Wu, First-Year Representative of Science Divison, *UCL Data Science Society*
 
@@ -9,10 +9,11 @@ Created by Zhaoxuan "Tony" Wu, First-Year Representative of Science Divison, *UC
 -   Introduction to _Git_ and _Github_
 -   Manage your own project with _Git_
 -   `.gitignore` and what to be ignored
--   Upload your personal project to _Github_ 
+-   Upload your personal project to _Github_
 -   Branch
 -   Collaberative projects and how to collaberate using _Git_ and _Github_
--   Example: _Attendance Sheet_ 
+-   Practice: Collaboration in Pairs
+-   Practice: _Attendance Sheet_ 
 
 ## Prerequisition
 
@@ -26,7 +27,7 @@ Recommended multi-lang IDE: _Atom_, _Visual Studio_, _Sublime Text_, or _Vim_, w
 
 ### _Github_
 
-Get yourself a _Github_ account, it's free! If you prefer graphical interface, [_Github Desktop_](https://desktop.github.com). But we are going to learn _Git_ and _Github_ using command line today.
+Get yourself a _Github_ account, it's free! If you prefer graphical interface, [_Github Desktop_](https://desktop.github.com). But we are going to learn _Git_ and _Github_ using command line today. Also, remember to claim your [_Github Student Package_:package:](https://education.github.com/pack)
 
 ## What is _Git_, and Why?
 
@@ -201,15 +202,17 @@ Save and quit:
 
 Now, _stage_ and _commit_ everything and see what happen.
 
+*And here comes a real story...*
+
 ### _Remote repo_ and _Github_
 
 Now you might want to share your code with other developer, you can do this by putting your project on a remote repo. Do this by call the following function:
 
-```
+```python
 seeTonyForLiveDemo()
 ```
 
-### _Branching_, and uploading changes to _remote repo_
+### _Branch_, and uploading changes to _remote repo_
 
 For instance, you want to create an _HTML_ for your app. Create and switch to a new branch called `html`:
 
@@ -243,27 +246,102 @@ Go to your  _Github_ repo to see what happened.
 
 ## Collaborative Coding: 101
 
->   To be implemented
+### If that's not your own project:
 
-If that's not your own project:
+#### *Obtain the repo*
 
--   fork an existing project
--   Upload to your know repo
--   Pull request
--   Keep your repo the same 
+-   Fork an existing project
+-   Clone the _your remote repo_ to local
 
-```
+#### *Make changes*
+
+-   Make changes to _local repo_
+-   Add _remote forked repo_ to `remote`:
+
+```bash
 git remote -v
-git remote add upstream <your_upstream>
+git remote add upstream <upstream_url>
+```
+
+#### *Push to remote*
+
+-   `push` to _your remote repo_
+-   Make a pull request
+
+#### *Sync with forked repo*
+
+**EITHER**
+
+-   Keep your local _repo_ synced with the _remote forked repo_ and push to _your remote repo_
+
+```bash
 git fetch upstream
 git merge upstream/master
 git push -u origin upstream
 ```
 
-If that's your own project:
+**OR**
+
+-   Sync _your remote repo_ to _remote forked repo_ on _Github_
+-   `pull`  from _your remote_repo to keep your _local repo_ synced
+
+### *If that's your own project*:
 
 -   Manage pull request
--   Merge
+-   Review changes, make comments, reject or `merge` pull request
+
+## Practice: Collaboration in Pairs
+
+Find a partner. designate one as the _project manager_ and the other as the _contributor_. 
+
+### *Project Manager*
+
+-   Initialise a _local repo_ and a _remote repo_
+-   Review your peer's pull requests
+
+### ***Contributor***
+
+-   Fork your project manager's _remote repo_
+-   `clone` and make changes locally
+-   Make a pull request
 
 ## Practice: Signing an attendance sheet
+
+Let's sign an attendance sheet collaboratively!
+
+[The main repo for you to work on](https://github.com/TonyWu3027/dss-git-workshop)
+
+```python
+signAttendanceSheet(dssWorkshopAttendee)
+```
+
+## To Wrap Up
+
+_Git/Github_ is massive, I haven't figure out all of it as well. This is a brief introduction to the tip of this iceberg.
+
+[Official Documentation :bookmark_tabs:](https://git-scm.com/docs)
+
+Thank you all for joining our journey to _data science_, _machine learning_,_neural nets_, _Python programming_ and _Git/Github_. See you next week and hopefully ***next academic year*** as well!
+
+[Checkout my Mathematics for Machine Learning notes :robot:](https://github.com/TonyWu3027/inst0060-notes)
+
+[Some of my past hackathon projects you might find inspiring :bulb: ](https://devpost.com/TonyWu3027?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav)
+
+#### ***Most importantly***:
+
+Stay tune for everything about data science
+
+[Subscribe to our offical IG if you haven't do so :ballot_box_with_check:](https://www.instagram.com/ucl.datasci/)
+
+[And our FB! :champagne: ](https://www.facebook.com/ucldata/)
+
+## *Next Week*
+
+**What**: ***Introduction to Object-Orientated Programming (OOP)***
+
+**When**: Monday, 16 Mar
+
+**Who**: *Shirui "Eric" Lyu*
+
+**Where**: 20 Bedford Way (IOE), w2.05
 
