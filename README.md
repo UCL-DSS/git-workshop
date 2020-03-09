@@ -45,7 +45,7 @@ _Git_ is a ***system*** that manages the version control of a project, while _Gi
 
 ## Relationship
 
-![1*9qX9F9MGsWKfcmgTOR9BPw](./assets/1*9qX9F9MGsWKfcmgTOR9BPw.png)
+![A Simplied Git/Github Model](./assets/figure1.png)
 
 >   ***Repository*** ("Repo") : a receptacle or place where things are deposited or stored
 
