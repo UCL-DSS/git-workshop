@@ -1,21 +1,22 @@
-# UCL Data Science Society - Term 2 Workshop 6: Introduction to _Git/Github_
+# UCL Data Science Society - Internal Training 1: Introduction to _Git/Github_
 
-Created by Zhaoxuan "Tony" Wu, First-Year Representative of Science Divison, *UCL Data Science Society*
+## Credit
+
+Created by Zhaoxuan "Tony" Wu, Head of Science, *UCL Data Science Society*
 
 [See me on _Github_🙋‍♂️](https://github.com/TonyWu3027)
 
 ## Table of Contents
 
--   Introduction to _Git_ and _Github_
--   Manage your own project with _Git_
--   `.gitignore` and what to be ignored
--   Upload your personal project to _Github_
--   Branch
--   Collaberative projects and how to collaberate using _Git_ and _Github_
--   Practice: Collaboration in Pairs
--   Practice: _Attendance Sheet_ 
+[toc]
+
+
 
 ## Prerequisition
+
+-   [ ] Setup a _Github_ account
+-   [ ] For _MacOS_/_Linux_: Download _Git_
+-   [ ] For _Windows_: Download _Bash_
 
 ### _Git_
 
@@ -36,7 +37,7 @@ Get yourself a _Github_ account, it's free! If you prefer graphical interface, [
 -   Industrial production standard
 -   Hackathon
 -   Writing a book
--   Keeping lecture nots
+-   Keeping lecture notes
 -   ...
 
 ## How is it different from _Github_?
@@ -55,16 +56,16 @@ Do the following on your own _Terminal_
 
 ### Initialisation of project
 
-Create a _directory_ (folder) for your project:
+Create a _directory_ (or better known as ***"folder"***) for your project:
 
 ```bash
-mkdir myapp
+mkdir my-novel
 ```
 
-Go to that directory:
+Go to that _directory_:
 
 ```bash
-cd myapp
+cd my-novel
 ```
 
 Initialise the project with _Git_ so that _Git_ manages the version control of the project:
@@ -75,57 +76,20 @@ git init
 
 Now you should have a `.git` folder in your directory, which is invisible currently. Also, your current project  is called the _local workspace_.
 
-### Make changes
+### Write something
 
-Now, create an `app.py` _Python_ file in this folder and write a line of code that outputs `"Welcome to DSS Workshop 6"`
+Let's write a ***novel*** together! You can do it with your IDE or with command line. The method for doing that using command line is as the following:
 
-```python
-key = ""
-
-def getKey():
-     f = open("key.txt","r")
-     key = f.read()
-     f.close()
-
-def login(account,password, ):
-     if account ==
-```
-
-
-
-You can do it with your IDE or with command line. The method for doing that using command line is as the following:
-
-Create  `app.py` :
+Create  `intro.md`:
 
 ```bash
-touch app.py
+touch intro.md
 ```
 
-Edit the file using the built-in editor _Vim_, or use IDE:
+Edit the file using the built-in editor **_Vim_**, or use ***IDE***. Copy and paste the following text:
 
-```bash
-vim app.py
-```
-
-```python
-key = ""
-
-def getKey():
-     f = open("key.txt","r")
-     key = f.read()
-     f.close()
-
-def login(password):
-     if account == key:
-          print("successful")
-     else:
-          print("denied")
-```
-
-Save the file and quit:
-
-```bash
-:wq
+```markdown
+It was the best of times, it was the worst of times; it was the age of wisdom, it was the age of foolishness; it was the epoch of belief, it was the epoch of incredulity; it was the season of light, it was the season of darkness; it was the spring of hope, it was the winter of despair; we had everything before us, we had nothing before us; we were all going direct to Heaven, we were all going direct the other way.
 ```
 
 ### Stage the changes
@@ -133,10 +97,10 @@ Save the file and quit:
 Before you commit your changes, you should _add_ your changes to the stage, or "_stage_" it.
 
 ```bash
-git add .
+git add intro.md 
 ```
 
->   ***Note that***: `git add` takes in a parameter, which is the filename. For example, you can do `git add app.py` to stage `app.py`, `git add .` is the wildcard mode that stages ***every*** file that has been changed
+>   ***Note that***: `git add` takes in a parameter, which is the filename. The *"wildcard"* mode is also available: it stages ***every*** file that has been changed. To do so, execute: `git add .` to pass `.` as a wildcard parameter
 
  To check your _stage_:  
 
@@ -144,31 +108,126 @@ git add .
 git status
 ```
 
+And you will see:
+
+```shell
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   intro.md
+```
+
+>   ***Note that***: here we can see some important information
+>
+>   -   Branch: `master` (stay tuned for what it means)
+>   -   Commits: none (stay tuned for what it means)
+>   -   Changes: `new file: intro.md` - `intro.md` is staged and is ready to be commited
+
 ### Commit the changes
 
 Now, commit your changes:
 
 ```bash
-git commit -m "first commit"
+git commit -m "Initialise project with a intro"
 ```
 
->   ***Note that***: `git commit` takes in commit comment using the `-m` flag,  followed by your comment string. It can be anything. Here we use `"first commit"` as example, which is usually what you do for your first commit literally
+>   ***Note that***: `git commit` takes in commit comment using the `-m` flag,  followed by your comment string. It can be anything. Here we use `"Initialise project with a intro"` as example, which is usually what you do for your first commit literally
 
-Congrats! 🥳 You just commited your first contribution to the project! Now this version of commit is officially in your _local repository_ (_local repo_). 
+Congrats! 🥳 You just commited your first contribution to the project! Now this version of commit is officially in your _local repository_ (_**local repo**_). 
 
-### Create another file
+## Branching: the magical bit of _Git_
 
-Now create another file `key.txt` with whichever method you like and write the following line:
+When we develop a project, we tend to create a branch for the stuff we are working on here. For instance, in a collaborative working environment of a **webpage**, somebody will take care of the **frontend** while others will be working with the **backend**, or a team will be responsible for the ***styling***, and the rest will write **unit tests**. So in this specific project, we can ***branch*** our project into a few branches:
 
-```bash
-"ucldssistheBEST:)"
+-   `frontend`
+-   `backend`
+-   `unit-test`
+-   ...
+
+and they can start working simultaneously. For instance: a frontend engineer can start writing JavaScripts while the backend scripting is not finished. Other good thing about branching is that it makes sure your commits do not *"contaminate"* your `master` branch (the default/major branch) before its ready.
+
+### Chapter 1
+
+Create and switch to branch `chapter-1`:
+
+```shell
+git checkout -b chapter-1
 ```
 
->   Don't stage it yet
+>   Note that:
+>
+>   `-b` flag accepts a parameter `<branch_name>` and create such a branch which is not existed yet. Switching to an existing branch does not require `-b` flag
+
+Create `ch-1.md` and write in the following:
+
+``` markdown
+In 1775, a man flags down the nightly mail-coach on its route from London to Dover. The man is Jerry Cruncher, an employee of Tellson's Bank in London; he carries a message for Jarvis Lorry, a passenger and one of the bank's managers. Lorry sends Jerry back to deliver a cryptic response to the bank: "Recalled to Life." The message refers to Alexandre Manette, a French physician who has been released from the Bastille after an 18-year imprisonment. Once Lorry arrives in Dover, he meets Dr. Manette's daughter Lucie and her governess, Miss Pross. Lucie has believed her father to be dead, and faints at the news that he is alive; Lorry takes her to France to reunite with her father.
+
+In the Paris neighbourhood of the Faubourg Saint-Antoine, Dr. Manette has been given lodgings by his former servant Ernest Defarge and his wife Therese, owners of a wine shop. Lorry and Lucie find him in a small garret, where he spends much of his time making shoes – a skill he learned in prison – which he uses to distract himself from his thoughts and which has become an obsession for him. He does not recognise Lucie at first but does eventually see the resemblance to her mother through her blue eyes and long golden hair, a strand of which he found on his sleeve when he was imprisoned. Lorry and Lucie take him back to England.
+```
+
+Add and commit
+
+### Chapter 2
+
+Create and switch to branch `chapter-2`
+
+Create `ch-2.md` and write something:
+
+```markdown
+> Side notes: I don't know what to write but there should be a chapter 2, any thought?
+```
+
+Add and commit
+
+### Write a bit more for _Intro_
+
+Add the following to `intro.md`
+
+```markdown
+> Side notes: Damn that's a good intro
+```
+
+Add and commit
+
+### Commit history
+
+```shell
+git log 
+```
+
+>   ***Note that***: here are some useful flags:
+>
+>   -   `--oneline`: show each _commit_ in one line: `<hash> <commit_msg>`
+>
+>   -   `--graph`: visualisation of the commit history
+>   -   `--all`: show the history across all branches
+>
+>   To quit the log, press `<q>`
+
+### Put them together
+
+Go to `master` branch
+
+```shell
+git checkout master
+```
+
+Merge with `chapter-1`
+
+```shell
+git merge chapter-1
+```
+
+Same for `chapter-2`
 
 ## Security, security, security, and `.gitignore`
 
-You might notice that it is quite dangerous to commit a copy of your `key.txt` to a _repo_ or a _remote repo_. 
+You might notice that it is quite dangerous to commit a copy of your sensitive information to a _repo_ or to a _remote repo_. 
 
 -   API keys
 -   Database password
@@ -179,6 +238,17 @@ You might notice that it is quite dangerous to commit a copy of your `key.txt` t
 -   `/node_modules`
 -   ...
 
+### My little secret
+
+At `master`, create `secret.md` and write:
+
+```markdown
+> Don't tell anyone:
+I copied those chapters from the Wikipedia page of "A Tale of Two Cities". Don't tell anyone, otherwise my careers is ****ed. Hope they don't do turnitin here
+```
+
+### `.gitignore`
+
 By using `.gitignore`, you can prevent certain files to be commited to a _repo_
 
 ```bash
@@ -188,72 +258,46 @@ touch .gitignore
 Directly add the name of the files you want to hide to that `.gitignore` file:
 
 ```bash
-vim .gitignore
-
 .DS_Store
-key.txt
-```
-
-Save and quit:
-
-```bash
-:wq
+secret.md
 ```
 
 Now, _stage_ and _commit_ everything and see what happen.
 
-*And here comes a real story...*
+>   *And here comes a real story about poor Leo and his crypto-currency tokens...*
 
-### _Remote repo_ and _Github_
+## Ah Damn... I want to go back a bit
 
-Now you might want to share your code with other developer, you can do this by putting your project on a remote repo. Do this by call the following function:
+Assume you did something wrong but you committed it, and you don't want to commit a debugged version of it for some reason (like it will look stupid in your commit history), you might want to ***remove*** some commits from the history.
+
+For instance, going back to the last commit:
+
+```shell
+git reset --soft HEAD^
+```
+
+>   ***Note that***:
+>
+>   `git reset` has several ***modes***(`--soft`, `--hard` and `--mixed`) and there are ways to manipulate the pointer to point at a commit that is higher up in the tree, using `^` and `~`. Please refer to the [doc](https://git-scm.com/docs/git-reset)
+
+## Enough for _Git_, how about some _GitHub_: Remote _repo_
+
+Now you might want to ***share*** your code with other developer, you can do this by putting your project on a remote repo. Do this by call the following function:
 
 ```python
-seeTonyForLiveDemo()
+You.watch(Tony.live_demo("How to use GitHub"))
 ```
 
-### _Branch_, and uploading changes to _remote repo_
+## Collaborative Coding 101
 
-For instance, you want to create an _HTML_ for your app. Create and switch to a new branch called `html`:
+### If that's not your own project
 
-```bash
-git checkout -b html
-```
-
->   ***Note that***: `-b` flag is for creating a new branch. If you want to see all available branches, use `git branch`, if you want to switch to an existing branch, use `git checkout <branch>` where `<branch>` is the branch name
-
-Craete your HTML: 
-
-```html
-<html>
-	<head>
- 		<title>UCL DSS</title>
- 	</head>
- 	<body>
- 		<h1> My heading</h1>
- 		<p> Your first programme/page for any languages should always be: Hello World! </p>
- 	</body>
- </html>
-```
-
-_Stage_ it, check the _stage_, _commit_ it. Now, upload it:
-
-```bash
-git push -u origin html
-```
-
-Go to your  _Github_ repo to see what happened.
-
-## Collaborative Coding: 101
-
-### If that's not your own project:
-
-#### *Obtain the repo*
+ ***Obtain the repo***
 
 -   Fork an existing project
 -   Clone the _your remote repo_ to local
 
-#### *Make changes*
+***Make changes***
 
 -   Make changes to _local repo_
 -   Add _remote forked repo_ to `remote`:
@@ -263,12 +307,12 @@ git remote -v
 git remote add upstream <upstream_url>
 ```
 
-#### *Push to remote*
+***Push to remote***
 
 -   `push` to _your remote repo_
 -   Make a pull request
 
-#### *Sync with forked repo*
+***Sync with forked repo***
 
 **EITHER**
 
@@ -283,36 +327,31 @@ git push -u origin upstream
 **OR**
 
 -   Sync _your remote repo_ to _remote forked repo_ on _Github_
--   `pull`  from _your remote_repo to keep your _local repo_ synced
+-   `pull`  from _your remote repo_ to keep _your local repo_ synced
 
-### *If that's your own project*:
+### *If that's your own project*
 
 -   Manage pull request
 -   Review changes, make comments, reject or `merge` pull request
-
-## Practice: Collaboration in Pairs
-
-Find a partner. designate one as the _project manager_ and the other as the _contributor_. 
-
-### *Project Manager*
-
--   Initialise a _local repo_ and a _remote repo_
--   Review your peer's pull requests
-
-### ***Contributor***
-
--   Fork your project manager's _remote repo_
--   `clone` and make changes locally
--   Make a pull request
 
 ## Practice: Signing an attendance sheet
 
 Let's sign an attendance sheet collaboratively!
 
-[The main repo for you to work on](https://github.com/TonyWu3027/dss-git-workshop)
+[The repo to the attendance sheet](https://github.com/TonyWu3027/attendance-sheet/blob/master/README.md)
 
-```python
-signAttendanceSheet(dssWorkshopAttendee)
+### BONUS: Git Internals
+
+If we've got time, execute the following code for learning **_Git_ *internals***
+
+```java
+import ucl.dss.science.Tony;
+
+public class GitDemo {
+     public static void main(String[] args) {
+          Tony.present(Git.internals);
+     }
+}
 ```
 
 ## To Wrap Up
@@ -321,27 +360,15 @@ _Git/Github_ is massive, I haven't figure out all of it as well. This is a brief
 
 [Official Documentation :bookmark_tabs:](https://git-scm.com/docs)
 
-Thank you all for joining our journey to _data science_, _machine learning_,_neural nets_, _Python programming_ and _Git/Github_. See you next week and hopefully ***next academic year*** as well!
+## One More Thing...
 
-[Checkout my Mathematics for Machine Learning notes :robot:](https://github.com/TonyWu3027/inst0060-notes)
-
-[Some of my past hackathon projects you might find inspiring :bulb: ](https://devpost.com/TonyWu3027?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav)
-
-#### ***Most importantly***:
-
-Stay tune for everything about data science
+***Stay tuned*** for everything about data science
 
 [Subscribe to our offical IG if you haven't do so :ballot_box_with_check:](https://www.instagram.com/ucl.datasci/)
 
-[And our FB! :champagne: ](https://www.facebook.com/ucldata/)
+And [our FB! :champagne: ](https://www.facebook.com/ucldata/)
 
-## *Next Week*
+And follow [me on GitHub](https://www.github.com/TonyWu3027)
 
-**What**: ***Introduction to Object-Orientated Programming (OOP)***
 
-**When**: Monday, 16 Mar
-
-**Who**: *Shirui "Eric" Lyu*
-
-**Where**: 20 Bedford Way (IOE), w2.05
 
