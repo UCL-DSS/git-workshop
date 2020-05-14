@@ -6,12 +6,6 @@ Created by Zhaoxuan "Tony" Wu, Head of Science, *UCL Data Science Society*
 
 [See me on _Github_🙋‍♂️](https://github.com/TonyWu3027)
 
-## Table of Contents
-
-[toc]
-
-
-
 ## Prerequisition
 
 -   [ ] Setup a _Github_ account
@@ -78,7 +72,9 @@ Now you should have a `.git` folder in your directory, which is invisible curren
 
 ### Write something
 
-Let's write a ***novel*** together! You can do it with your IDE or with command line. The method for doing that using command line is as the following:
+Let's write a ***novel*** together! 
+
+>   You can do it with your IDE or with command line. 
 
 Create  `intro.md`:
 
