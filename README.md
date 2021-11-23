@@ -1,4 +1,4 @@
-# UCL Data Science Society - Internal Training 1: Introduction to _Git/Github_
+# UCL Data Science Society - Introduction to _Git/Github_
 
 ## Credit
 
